@@ -1,13 +1,14 @@
 import styles from './Homepage.module.css';
-import { Stack, Button, Avatar} from '@mui/material';
+import { Stack, Avatar} from '@mui/material';
 import { api } from '../../api/axios';
 import { useEffect,useState} from 'react';
 import Sound from 'react-sound';
+import { Paimon } from '../../components/Paimon'
 
 export const HomePage = () => {
 
     const [avatar, setAvatar] = useState([] as any);
-    const [character, setCharacter] = useState('');
+    const [character, setCharacter] = useState('albedo');
     const [characterImg, setCharacterImg] = useState('')
 
     const characterMenus = useEffect(() => {
@@ -16,7 +17,7 @@ export const HomePage = () => {
             let link = ''
             response.data.map((element: never) => { 
                 link = `https://api.genshin.dev/characters/${element}/icon.png`;
-                if (!(['ayato', 'collei', 'kuki-shinobu'].indexOf(element) >= 0)){
+                if (!(['ayato', 'collei', 'kuki-shinobu', 'shikanoin-heizou', 'tighnari'].indexOf(element) >= 0)){
                 charArray.push(
                 <div className={styles.charMenu} id={element} onClick={() => {setCharacter(element)}}>
                     <Avatar sx={{ background: 'rgba(150,150,150,0.2)', border:'1px solid rgba(250,250,250,0.4)',  margin: '5px 10px 5px 10px', width: 64, height: 64 }} alt={`${(element as string)}`}  src={link} />
@@ -56,6 +57,7 @@ export const HomePage = () => {
         />
         <Stack className={styles.background}></Stack>
             <Stack className={styles.container}>
+                <Paimon />
                 <Stack className={styles.leftMenu}>
                     {avatar}
                 </Stack>
