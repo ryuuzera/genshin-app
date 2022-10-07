@@ -69,6 +69,7 @@
     top: 30%;
     height: 500px;
 }
+
 .charMenu {
     display: inline-flex;
     flex-direction: row;

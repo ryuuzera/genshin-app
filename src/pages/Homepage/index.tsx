@@ -29,7 +29,10 @@ export const HomePage = () => {
               <img {...props} />
           );
       }else { 
-        return (<CircularProgress />);
+        return (<CircularProgress size={'10rem'} sx={{position: 'absolute',
+        left: '42%',
+        top: '38%',
+        }} />);
       }
   };
 
