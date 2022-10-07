@@ -40,7 +40,7 @@ export const HomePage = () => {
     const [character, setCharacter] = useState('albedo');
     const [characterImg, setCharacterImg] = useState('')
 
-    const characterMenus = useEffect(() => {
+    useEffect(() => {
         api.get('/characters').then((response) => {
             const charArray = new Array<any>
             let link = ''
@@ -62,13 +62,13 @@ export const HomePage = () => {
     },[]
     )
 
-    const selectChar = useEffect(() => {
+    useEffect(() => {
         api.get(`/characters/${character}`).then((response) => {
             
         })
     }, [character])
 
-    const selectImg = useEffect(() => {
+    useEffect(() => {
         setCharacterImg(`https://api.genshin.dev/characters/${character}/portrait.png`)
         console.log(characterImg)
     }, [character])
