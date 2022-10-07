@@ -58,7 +58,16 @@
 .characterCard {
     width: 70%;
     height: 70%;
-    background: darkblue;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgb(4,0,70);
+    background: linear-gradient(90deg, rgba(4,0,70, 0.15) 0%, rgba(33, 9, 121, 0.15) 35%, rgba(109,0,255,0.15) 100%);
+    border-radius: 32px;
+}
+.characterCard img {
+    position: absolute;
+    left: 68%;
+    top: 30%;
+    height: 500px;
 }
 .charMenu {
     display: inline-flex;
