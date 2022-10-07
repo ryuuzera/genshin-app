@@ -1,0 +1,85 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    border: none;
+    background-image: url('../../../public/galaxy_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(5px);
+    min-width: 900px;
+}
+
+.container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0);
+    height: 80vh;
+    width: 80vw;
+    min-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 2px 32px 0 rgba(140, 142, 165, 0.22);
+}
+
+.leftMenu {
+    justify-content: flex-start;
+    border-radius: 8px 0 0 8px;
+    z-index: 1;
+    height: auto;
+    width: 30%;
+    min-width: 250px;
+    overflow:auto;
+    background: rgba( 235, 235, 235, 0.155 );
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
+    border-top: 1px solid rgba( 255, 255, 255, 0.18 );
+    border-left: 1px solid rgba( 255, 255, 255, 0.18 );
+    
+    
+}
+
+.characterContainer {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 8px 8px 0;
+    background: rgba( 55, 55, 55, 0.3 );
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
+}
+
+.characterCard {
+    width: 70%;
+    height: 70%;
+    background: darkblue;
+}
+.charMenu {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 5px;
+     color: black;
+     font-family: 'Roboto';
+     font-size: 24px;
+     text-decoration: none;
+     cursor: pointer;
+
+}
+
+.charMenu p{
+    align-self: center;
+    color:rgb(228, 225, 233);
+}
+
+
+.charMenu:hover {
+    background: rgba(31, 1, 49, 0.4);
+    border-radius: 32px;
+      
+}
