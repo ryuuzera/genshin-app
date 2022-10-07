@@ -1,11 +1,37 @@
 import styles from './Homepage.module.css';
-import { Stack, Avatar} from '@mui/material';
+import { Stack, Avatar, CircularProgress} from '@mui/material';
 import { api } from '../../api/axios';
 import { useEffect,useState} from 'react';
 import Sound from 'react-sound';
 import { Paimon } from '../../components/Paimon'
 
 export const HomePage = () => {
+    
+
+    const AsyncImage = (props: any) => {
+        const [loadedSrc, setLoadedSrc] = useState(null);
+        useEffect(() => {
+            setLoadedSrc(null);
+            if (props.src) {
+                const handleLoad = () => {
+                  setLoadedSrc(props.src);
+              };
+              const image = new Image();
+              image.addEventListener('load', handleLoad);
+                image.src = props.src;
+              return () => {
+                    image.removeEventListener('load', handleLoad);
+              };
+          }
+      }, [props.src]);
+        if (loadedSrc === props.src) {
+          return (
+              <img {...props} />
+          );
+      }else { 
+        return (<CircularProgress />);
+      }
+  };
 
     const [avatar, setAvatar] = useState([] as any);
     const [character, setCharacter] = useState('albedo');
@@ -63,7 +89,7 @@ export const HomePage = () => {
                 </Stack>
                 <Stack className={styles.characterContainer}>
                     <Stack className={styles.characterCard}>
-                        <img src={characterImg}/>
+                         <AsyncImage src={characterImg}/> 
                     </Stack>
                 </Stack>
             </Stack>
