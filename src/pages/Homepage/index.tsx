@@ -1,12 +1,12 @@
 /* eslint-disable */
 import { Avatar, CircularProgress, Stack, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { AiFillStar } from 'react-icons/ai';
 import Sound from 'react-sound';
 import { api } from '../../api/axios';
-import { Paimon } from '../../components/Paimon';
-import styles from './Homepage.module.css';
 import { CharRarity } from '../../components/CharRarity';
+import { Paimon } from '../../components/Paimon';
+import { WeaponIcon } from '../../components/WeaponIcon';
+import styles from './Homepage.module.css';
 
 export const HomePage = () => {
   const AsyncImage = (props: any) => {
@@ -49,7 +49,6 @@ export const HomePage = () => {
     setCharacterImg(`https://api.genshin.dev/characters/${character}/portrait.png`);
     api.get(`/characters/${character}`).then((response) => {
       setCharacterObj(response.data);
-      console.log(response.data);
     });
 
     api
@@ -59,7 +58,13 @@ export const HomePage = () => {
         let link = '';
         response.data.map((element: never) => {
           link = `https://api.genshin.dev/characters/${element}/icon.png`;
-          if (!(['ayato', 'collei', 'kuki-shinobu', 'shikanoin-heizou', 'tighnari'].indexOf(element) >= 0)) {
+          if (
+            !(
+              ['traveler-dendro', 'ayato', 'collei', 'kuki-shinobu', 'shikanoin-heizou', 'tighnari', 'aloy'].indexOf(
+                element
+              ) >= 0
+            )
+          ) {
             charArray.push(
               <div
                 className={styles.charMenu}
@@ -101,14 +106,13 @@ export const HomePage = () => {
     setCharacterImg(`https://api.genshin.dev/characters/${character}/portrait.png`);
     api.get(`/characters/${character}`).then((response) => {
       setCharacterObj(response.data);
-      console.log(response.data);
     });
   }, [character]);
 
   return (
     <>
       <Sound
-        url={'genshin-theme.mp3'}
+        url={'genshin-theme.wav'}
         playbackRate={1}
         playStatus={'PLAYING'}
         loop={true}
@@ -127,10 +131,10 @@ export const HomePage = () => {
           <Stack className={styles.characterCard}>
             <Stack className={styles.characterInfo}>
               <Stack className={styles.infoOneLeft}>
-                <Typography variant='h3' sx={{ marginTop: '1rem', marginLeft: '1rem' }}>
+                <Typography variant='h2' sx={{ marginTop: '1rem', marginLeft: '1rem', fontSize: '2.4rem' }}>
                   {`${characterObj.name}`}
                 </Typography>
-                <Typography variant='h4' sx={{ marginLeft: '1rem', marginTop: '15px' }}>
+                <Typography variant='h4' sx={{ marginLeft: '1rem', marginTop: '15px', fontWeight: '300' }}>
                   <span className={styles.charElement}>
                     {characterObj ? `${characterObj.vision}` : ''}{' '}
                     <img
@@ -140,28 +144,75 @@ export const HomePage = () => {
                     />
                   </span>
                 </Typography>
-                <Typography variant='h4' sx={{ marginLeft: '1rem', marginTop: '25px' }}>
+                <Typography variant='h4' sx={{ marginLeft: '1rem', marginTop: '25px', fontWeight: '300' }}>
                   <CharRarity charObj={characterObj} />
                 </Typography>
               </Stack>
               <Stack className={styles.infoOneRight}>
-                <Typography variant='h3' sx={{ marginTop: '1rem', marginRight: '1rem' }}>
-                {`${characterObj.nation}`}
+                <Typography variant='h3' sx={{ marginTop: '1rem', marginRight: '1rem', fontWeight: '300' }}>
+                  {`${characterObj.nation}`}
                 </Typography>
-                <Typography variant='h4' sx={{ marginRight: '1rem' }}>
-                {`${characterObj.weapon}`}
+                <Typography variant='h4' sx={{ marginRight: '1rem', fontWeight: '300' }}>
+                  <span className={styles.charWeapon}>
+                    <WeaponIcon objChar={characterObj} />
+                    {characterObj ? `${characterObj.weapon}` : ''}{' '}
+                  </span>
                 </Typography>
-                <Typography variant='h4' sx={{ marginRight: '1rem' }}>
-                {`${characterObj.affiliation}`}
+                <Typography variant='h4' sx={{ marginRight: '1rem', fontWeight: '300' }}>
+                  {`${characterObj.affiliation}`}
                 </Typography>
               </Stack>
             </Stack>
-            <Stack className={styles.characterInfo2}></Stack>
-            <Stack className={styles.characterInfo3}></Stack>
+            <Stack className={styles.characterInfo2}>
+              <Stack className={styles.infoOneLeft}>
+                <span className={styles.charDesc}>
+                  <Typography sx={{ fontSize: '1.3rem', fontWeight: '300' }}>
+                    {`${characterObj.description}`}
+                  </Typography>
+                </span>
+              </Stack>
+              <Stack className={styles.infoOneRight}></Stack>
+            </Stack>
+            <Stack className={styles.characterInfo3}>
+              <Stack className={styles.characterInfoOneLeft}>
+                <span className={styles.talentSkill}>
+                  <img src={`https://api.genshin.dev/characters/${character}/talent-na`} />
+                  <Typography variant='h1' sx={{ fontSize: '1.3rem', fontWeight: '300', marginLeft: '8px' }}>
+                    {characterObj.skillTalents ? `${characterObj.skillTalents[0].name}` : ''}{' '}
+                  </Typography>
+                </span>
+                <span className={styles.talentSkill}>
+                  <img src={`https://api.genshin.dev/characters/${character}/talent-skill`} />
+                  <Typography variant='h1' sx={{ fontSize: '1.3rem', fontWeight: '300', marginLeft: '8px' }}>
+                    {characterObj.skillTalents ? `${characterObj.skillTalents[1].name}` : ''}{' '}
+                  </Typography>
+                </span>
+                <span className={styles.talentSkill}>
+                  <img
+                    src={`https://api.genshin.dev/characters/${character}/${
+                      character === 'diluc' ? 'talent_burst' : 'talent-burst'
+                    }`}
+                  />
+                  <Typography variant='h1' sx={{ fontSize: '1.3rem', fontWeight: '300', marginLeft: '8px' }}>
+                    {characterObj.skillTalents ? `${characterObj.skillTalents[2].name}` : ''}{' '}
+                  </Typography>
+                </span>
+              </Stack>
+            </Stack>
           </Stack>
           <Stack className={styles.Footer}>
-            <p>Fagner Menezes ☕</p>
+            <a href='https://github.com/ryuuzera' alt='gitHub' target='_blank'>
+              Fagner Menezes ☕
+            </a>
           </Stack>
+          <iframe
+            width='0'
+            height='0'
+            src='https://www.youtube.com/embed/ghaz6x9Q-_4?autoplay=1&loop=1'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allowfullscreen
+          ></iframe>
         </Stack>
       </Stack>
     </>

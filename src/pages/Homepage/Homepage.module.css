@@ -44,6 +44,10 @@
 }
 
 .characterContainer {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  /* border-bottom: 1px solid rgba(255,255,255,0.2); */
+  width: 100%;
   width: 100%;
   height: 100%;
   border-radius: 0 8px 8px 0;
@@ -74,6 +78,7 @@
   font-family: 'Roboto';
   font-size: 24px;
   text-decoration: none;
+  transition: 0.4s;
   cursor: pointer;
 }
 
@@ -85,6 +90,7 @@
 .charMenu:hover {
   background: rgba(31, 1, 49, 0.4);
   border-radius: 32px;
+  transition: 0.4s;
 }
 
 .Progress {
@@ -112,12 +118,12 @@
 }
 
 .characterInfo {
-  display: inline-flex;
+  display:  inline-flex;
   color:rgb(228, 225, 233);
   flex-direction: row;
   border-radius: 32px 32px 0px 0px;
   width: 100%;
-  height: 25%;
+  height: 35%;
 }
 
 .charElement{
@@ -125,13 +131,27 @@
    align-items:center;
    gap: 15px;
 }
+
+.charElement img{
+  height: 38px;
+}
+
+.charWeapon{
+  display: flex;
+   justify-content: flex-end;
+   align-items:center;
+   gap: 11px;
+}
+
+.charWeapon img{
+  height: 50px;
+  border-radius: 32px;
+}
+
 .characterInfo .infoOneLeft{
   border-radius: 32px 32px 0px 0px;
   width: 50%;
   height: 100%;
-}
-.characterInfo .infoOneLeft img{
-  height: 38px;
 }
 
 .characterInfo .infoOneRight{
@@ -139,29 +159,91 @@
   border-radius: 32px 32px 0px 0px;
   width: 50%;
   height: 100%;
+  
   gap: 12px;
 }
 .characterInfo2 {
-  /* background: blueviolet; */
+  display:  inline-flex;
+  color:rgb(228, 225, 233);
+  flex-direction: row;
   width: 100%;
   height: 25%;
+}
+.characterInfo2 .infoOneLeft {
+  margin-left: 20px;
+  justify-content: center;
+  width: 88%;
+  height: 100%;
+}
+
+.characterInfo2 .infoOneLeft .charDesc {
+  border: 1px solid rgba(255,255,255, 0.3);
+  border-radius: 6px;
+  margin: 5px;
+  text-align: center;
+  padding: 15px;
+}
+
+.characterInfo2 .infoOneRight{
+  width: 30%;
+  height: 100%;
 }
 .characterInfo3 {
   border-radius: 0px 0px 32px 32px;
   /* background: gray; */
   width: 100%;
-  height: 50%;
+  height: 40%;
+}
+.characterInfo3 .characterInfoOneLeft {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* background: yellowgreen; */
+  width: 50%;
+  height: 100%;
+}
+
+.talentSkill {
+  display: inline-flex;
+  align-items:center;
+  gap: 10px;
+  height: 33%;
+  width: 100%;
+  padding-left: 15px;
+  color: white;
+}
+
+.talentSkill img {
+  cursor:pointer;
+  opacity: 0.5;
+  transition: 0.4s ease-in;
+}
+
+.talentSkill img:hover{
+  opacity: 0.8;
+  transition: 0.4s ease-out;
+}
+
+.characterInfo3 .characterInfoOneLeft img {
+  height: 64px;
 }
 
 .Footer {
   text-align: center; 
   height: 1.5rem;
-  width: 100%;
   margin-top: auto;
   margin-bottom: 9px;
 }
-.Footer p {
+.Footer a {
   font-size: 1.3rem;
   color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.4s ease-out;
   
+}
+
+.Footer a:hover{
+  transition: 0.4s ease-out;
+  color: rgb(113, 69, 217);
 }
