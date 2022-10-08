@@ -1,0 +1,4 @@
+.Star {
+  color: rgb(251,200,63);
+  color: radial-gradient(circle, rgba(251,200,63,1) 0%, rgba(243,252,70,1) 100%);
+}

@@ -1,102 +1,167 @@
 .background {
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-    border: none;
-    background-image: url('../../../public/galaxy_background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: blur(5px);
-    min-width: 900px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  border: none;
+  background-image: url('../../../public/galaxy_background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(5px);
+  min-width: 900px;
 }
 
 .container {
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,0);
-    height: 80vh;
-    width: 80vw;
-    min-width: 900px;
-    border-radius: 8px;
-    box-shadow: 0 2px 32px 0 rgba(140, 142, 165, 0.22);
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0);
+  height: 80vh;
+  width: 80vw;
+  min-width: 900px;
+  min-height: 700px;
+  border-radius: 8px;
+  box-shadow: 0 2px 32px 0 rgba(140, 142, 165, 0.22);
 }
 
 .leftMenu {
-    justify-content: flex-start;
-    border-radius: 8px 0 0 8px;
-    z-index: 1;
-    height: auto;
-    width: 30%;
-    min-width: 250px;
-    overflow:auto;
-    background: rgba( 235, 235, 235, 0.155 );
-    backdrop-filter: blur( 7px );
-    -webkit-backdrop-filter: blur( 7px );
-    border-top: 1px solid rgba( 255, 255, 255, 0.18 );
-    border-left: 1px solid rgba( 255, 255, 255, 0.18 );
-    
-    
+  justify-content: flex-start;
+  border-radius: 8px 0 0 8px;
+  z-index: 1;
+  height: auto;
+  width: 30%;
+  min-width: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: rgba(235, 235, 235, 0.155);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .characterContainer {
-    width: 100%;
-    height: 100%;
-    border-radius: 0 8px 8px 0;
-    background: rgba( 55, 55, 55, 0.3 );
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    backdrop-filter: blur( 7px );
-    -webkit-backdrop-filter: blur( 7px );
+  width: 100%;
+  height: 100%;
+  border-radius: 0 8px 8px 0;
+  background: rgba(55, 55, 55, 0.3);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.imageChar {
+  position: absolute;
+  bottom: 0;
+  right: 0%;
+  width: 500px;
+  max-width: 500px;
+  max-height: 600px;
+  border-radius: 32px;
+  filter: none !important;
+  z-index: 3;
+}
+.charMenu {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 5px;
+  color: black;
+  font-family: 'Roboto';
+  font-size: 24px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.charMenu p {
+  align-self: center;
+  color: rgb(228, 225, 233);
+}
+
+.charMenu:hover {
+  background: rgba(31, 1, 49, 0.4);
+  border-radius: 32px;
+}
+
+.Progress {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 35, 0.4);
 }
 
 .characterCard {
-    width: 70%;
-    height: 70%;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgb(4,0,70);
-    background: linear-gradient(90deg, rgba(4,0,70, 0.15) 0%, rgba(33, 9, 121, 0.15) 35%, rgba(109,0,255,0.15) 100%);
-    border-radius: 32px;
-}
-.imageChar {
-    position: absolute;
-    bottom: 0;
-    right: 0%;
-    width: 500px;
-    max-width: 500px;
-    max-height: 600px;
-    border-radius: 32px;
-    filter: none !important;
-    z-index: 3;
-}
-.charMenu {
-    display: inline-flex;
-    flex-direction: row;
-    gap: 5px;
-     color: black;
-     font-family: 'Roboto';
-     font-size: 24px;
-     text-decoration: none;
-     cursor: pointer;
-
+  margin-top: auto;
+  width: 80%;
+  height: 80%;
+  min-height:530px;
+  padding: 5px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(4, 0, 70, 0.2); 
+  background: linear-gradient(90deg, rgba(4, 0, 70, 0.15) 0%, rgba(33, 9, 121, 0.15) 35%, rgba(109, 0, 255, 0.15) 100%); 
+  border-radius: 32px;
 }
 
-.charMenu p{
-    align-self: center;
-    color:rgb(228, 225, 233);
+.characterInfo {
+  display: inline-flex;
+  color:rgb(228, 225, 233);
+  flex-direction: row;
+  border-radius: 32px 32px 0px 0px;
+  width: 100%;
+  height: 25%;
 }
 
-
-.charMenu:hover {
-    background: rgba(31, 1, 49, 0.4);
-    border-radius: 32px;
-      
+.charElement{
+  display: flex;
+   align-items:center;
+   gap: 15px;
+}
+.characterInfo .infoOneLeft{
+  border-radius: 32px 32px 0px 0px;
+  width: 50%;
+  height: 100%;
+}
+.characterInfo .infoOneLeft img{
+  height: 38px;
 }
 
+.characterInfo .infoOneRight{
+  text-align: end;
+  border-radius: 32px 32px 0px 0px;
+  width: 50%;
+  height: 100%;
+  gap: 12px;
+}
+.characterInfo2 {
+  /* background: blueviolet; */
+  width: 100%;
+  height: 25%;
+}
+.characterInfo3 {
+  border-radius: 0px 0px 32px 32px;
+  /* background: gray; */
+  width: 100%;
+  height: 50%;
+}
 
-
+.Footer {
+  text-align: center; 
+  height: 1.5rem;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 9px;
+}
+.Footer p {
+  font-size: 1.3rem;
+  color: white;
+  
+}
