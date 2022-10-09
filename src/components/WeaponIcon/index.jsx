@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 export const WeaponIcon = (props) => {
   let weaponName;
-  console.log(props.objChar);
   switch (props.objChar.weapon) {
     case 'Claymore':
       weaponName = 'favonius-greatsword';
@@ -21,7 +21,8 @@ export const WeaponIcon = (props) => {
 
   return (
     <>
-      <img src={`https://api.genshin.dev/weapons/${weaponName}/icon.png`} />
+      {// eslint-disable-next-line jsx-a11y/alt-text
+      <img src={`https://api.genshin.dev/weapons/${weaponName}/icon.png`} />}
     </>
   );
 };

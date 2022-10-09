@@ -2,6 +2,7 @@
 import { Avatar, CircularProgress, Stack, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Sound from 'react-sound';
+import { Char } from '../../@types/Char';
 import { api } from '../../api/axios';
 import { CharRarity } from '../../components/CharRarity';
 import { Paimon } from '../../components/Paimon';
@@ -40,10 +41,10 @@ export const HomePage = () => {
     }
   };
 
-  const [avatar, setAvatar] = useState([] as any);
+  const [avatar, setAvatar] = useState(new Array<JSX.Element>());
   const [character, setCharacter] = useState('albedo');
   const [characterImg, setCharacterImg] = useState('');
-  const [characterObj, setCharacterObj] = useState({});
+  const [characterObj, setCharacterObj] = useState({} as Char);
 
   useEffect(() => {
     setCharacterImg(`https://api.genshin.dev/characters/${character}/portrait.png`);
@@ -55,7 +56,7 @@ export const HomePage = () => {
       .get('/characters')
       .then((response) => {
         const charArray = new Array<any>();
-        let link = '';
+        let link;
         response.data.map((element: never) => {
           link = `https://api.genshin.dev/characters/${element}/icon.png`;
           if (
@@ -201,18 +202,24 @@ export const HomePage = () => {
             </Stack>
           </Stack>
           <Stack className={styles.Footer}>
-            <a href='https://github.com/ryuuzera' alt='gitHub' target='_blank'>
-              Fagner Menezes ☕
-            </a>
+            {
+              //@ts-ignore
+              <a href='https://github.com/ryuuzera' alt='gitHub' target='_blank'>
+                Fagner Menezes ☕
+              </a>
+            }
           </Stack>
-          <iframe
-            width='0'
-            height='0'
-            src='https://www.youtube.com/embed/ghaz6x9Q-_4?autoplay=1&loop=1'
-            frameborder='0'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowfullscreen
-          ></iframe>
+          {
+            <iframe
+              width='0'
+              height='0'
+              src='https://www.youtube.com/embed/ghaz6x9Q-_4?autoplay=1&loop=1'
+              //@ts-ignore
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowfullscreen
+            ></iframe>
+          }
         </Stack>
       </Stack>
     </>
