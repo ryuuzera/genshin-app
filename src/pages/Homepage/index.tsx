@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Avatar, CircularProgress, Stack, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import Sound from 'react-sound';
+import bg from '../../../public/galaxy_background.jpg';
 import { Char } from '../../@types/Char';
 import { api } from '../../api/axios';
 import { CharRarity } from '../../components/CharRarity';
@@ -9,7 +9,7 @@ import { Paimon } from '../../components/Paimon';
 import { WeaponIcon } from '../../components/WeaponIcon';
 import styles from './Homepage.module.css';
 
-export const HomePage = () => {
+const HomePage = () => {
   const AsyncImage = (props: any) => {
     const [loadedSrc, setLoadedSrc] = useState(null);
     useEffect(() => {
@@ -112,15 +112,22 @@ export const HomePage = () => {
 
   return (
     <>
-      <Sound
-        url={'genshin-theme.wav'}
-        playbackRate={1}
-        playStatus={'PLAYING'}
-        loop={true}
-        autoLoad={true}
-        volume={50}
-      />
-      <Stack className={styles.background}></Stack>
+      <div className='background'></div>
+      <style jsx>
+        {`
+          .background {
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            border: none;
+            background-image: url('${bg.src}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(1.5px);
+            min-width: 900px;
+          }
+        `}
+      </style>
       <Stack className={styles.imageChar}>
         <AsyncImage src={characterImg} className={styles.imgCharinside} />
       </Stack>
@@ -225,3 +232,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export default HomePage;

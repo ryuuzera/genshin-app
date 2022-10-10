@@ -1,3 +1,5 @@
+
+
 .background {
   width: 100vw;
   height: 100vh;
@@ -44,8 +46,8 @@
 }
 
 .characterContainer {
-  border-top: 1px solid rgba(255,255,255,0.3);
-  border-right: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
   /* border-bottom: 1px solid rgba(255,255,255,0.2); */
   width: 100%;
   width: 100%;
@@ -109,62 +111,62 @@
   margin-top: auto;
   width: 80%;
   height: 80%;
-  min-height:530px;
+  min-height: 530px;
   padding: 5px !important;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(4, 0, 70, 0.2); 
-  background: linear-gradient(90deg, rgba(4, 0, 70, 0.15) 0%, rgba(33, 9, 121, 0.15) 35%, rgba(109, 0, 255, 0.15) 100%); 
+  background: rgba(4, 0, 70, 0.2);
+  background: linear-gradient(90deg, rgba(4, 0, 70, 0.15) 0%, rgba(33, 9, 121, 0.15) 35%, rgba(109, 0, 255, 0.15) 100%);
   border-radius: 32px;
 }
 
 .characterInfo {
-  display:  inline-flex;
-  color:rgb(228, 225, 233);
+  display: inline-flex;
+  color: rgb(228, 225, 233);
   flex-direction: row;
   border-radius: 32px 32px 0px 0px;
   width: 100%;
   height: 35%;
 }
 
-.charElement{
+.charElement {
   display: flex;
-   align-items:center;
-   gap: 15px;
+  align-items: center;
+  gap: 15px;
 }
 
-.charElement img{
+.charElement img {
   height: 38px;
 }
 
-.charWeapon{
+.charWeapon {
   display: flex;
-   justify-content: flex-end;
-   align-items:center;
-   gap: 11px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 11px;
 }
 
-.charWeapon img{
+.charWeapon img {
   height: 50px;
   border-radius: 32px;
 }
 
-.characterInfo .infoOneLeft{
+.characterInfo .infoOneLeft {
   border-radius: 32px 32px 0px 0px;
   width: 50%;
   height: 100%;
 }
 
-.characterInfo .infoOneRight{
+.characterInfo .infoOneRight {
   text-align: end;
   border-radius: 32px 32px 0px 0px;
   width: 50%;
   height: 100%;
-  
+
   gap: 12px;
 }
 .characterInfo2 {
-  display:  inline-flex;
-  color:rgb(228, 225, 233);
+  display: inline-flex;
+  color: rgb(228, 225, 233);
   flex-direction: row;
   width: 100%;
   height: 25%;
@@ -177,14 +179,14 @@
 }
 
 .characterInfo2 .infoOneLeft .charDesc {
-  border: 1px solid rgba(255,255,255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 6px;
   margin: 5px;
   text-align: center;
   padding: 15px;
 }
 
-.characterInfo2 .infoOneRight{
+.characterInfo2 .infoOneRight {
   width: 30%;
   height: 100%;
 }
@@ -205,7 +207,7 @@
 
 .talentSkill {
   display: inline-flex;
-  align-items:center;
+  align-items: center;
   gap: 10px;
   height: 33%;
   width: 100%;
@@ -214,12 +216,12 @@
 }
 
 .talentSkill img {
-  cursor:pointer;
+  cursor: pointer;
   opacity: 0.5;
   transition: 0.4s ease-in;
 }
 
-.talentSkill img:hover{
+.talentSkill img:hover {
   opacity: 0.8;
   transition: 0.4s ease-out;
 }
@@ -229,7 +231,7 @@
 }
 
 .Footer {
-  text-align: center; 
+  text-align: center;
   height: 1.5rem;
   margin-top: auto;
   margin-bottom: 9px;
@@ -240,10 +242,9 @@
   text-decoration: none;
   cursor: pointer;
   transition: 0.4s ease-out;
-  
 }
 
-.Footer a:hover{
+.Footer a:hover {
   transition: 0.4s ease-out;
   color: rgb(113, 69, 217);
 }
