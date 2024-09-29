@@ -1,8 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Genshin Website made in Next.js
 
-deploy: [Vercel - Genshin Impact](https://genshin-app-ryuuzera.vercel.app/)
+deploy: [Vercel - Genshin Impact](https://genshin-app-virid.vercel.app/)
 
 
 ## Application screenshots:
