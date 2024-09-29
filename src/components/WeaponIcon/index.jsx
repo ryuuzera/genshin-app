@@ -22,7 +22,7 @@ export const WeaponIcon = (props) => {
   return (
     <>
       {// eslint-disable-next-line jsx-a11y/alt-text
-      <img src={`https://api.genshin.dev/weapons/${weaponName}/icon.png`} />}
+      <img src={`https://genshin.jmp.blue/weapons/${weaponName}/icon.png`} />}
     </>
   );
 };

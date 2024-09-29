@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'https://api.genshin.dev/'
+    baseURL: 'https://genshin.jmp.blue/'
 });

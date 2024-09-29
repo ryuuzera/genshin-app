@@ -47,7 +47,8 @@ const HomePage = () => {
   const [characterObj, setCharacterObj] = useState({} as Char);
 
   useEffect(() => {
-    setCharacterImg(`https://api.genshin.dev/characters/${character}/portrait.png`);
+   
+    setCharacterImg(`https://genshin.jmp.blue/characters/${character}/portrait.png`);
     api.get(`/characters/${character}`).then((response) => {
       setCharacterObj(response.data);
     });
@@ -58,7 +59,7 @@ const HomePage = () => {
         const charArray = new Array<any>();
         let link;
         response.data.map((element: never) => {
-          link = `https://api.genshin.dev/characters/${element}/icon.png`;
+          link = `https://genshin.jmp.blue/characters/${element}/icon.png`;
           if (
             !(
               ['traveler-dendro', 'ayato', 'collei', 'kuki-shinobu', 'shikanoin-heizou', 'tighnari', 'aloy'].indexOf(
@@ -104,7 +105,7 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
-    setCharacterImg(`https://api.genshin.dev/characters/${character}/portrait.png`);
+    setCharacterImg(`https://genshin.jmp.blue/characters/${character}/portrait.png`);
     api.get(`/characters/${character}`).then((response) => {
       setCharacterObj(response.data);
     });
@@ -146,7 +147,7 @@ const HomePage = () => {
                   <span className={styles.charElement}>
                     {characterObj ? `${characterObj.vision}` : ''}{' '}
                     <img
-                      src={`https://api.genshin.dev/elements/${
+                      src={`https://genshin.jmp.blue/elements/${
                         characterObj.vision ? characterObj.vision.toLowerCase() : 'geo'
                       }/icon.png`}
                     />
@@ -184,20 +185,20 @@ const HomePage = () => {
             <Stack className={styles.characterInfo3}>
               <Stack className={styles.characterInfoOneLeft}>
                 <span className={styles.talentSkill}>
-                  <img src={`https://api.genshin.dev/characters/${character}/talent-na`} />
+                  <img src={`https://genshin.jmp.blue/characters/${character}/talent-na`} />
                   <Typography variant='h1' sx={{ fontSize: '1.3rem', fontWeight: '300', marginLeft: '8px' }}>
                     {characterObj.skillTalents ? `${characterObj.skillTalents[0].name}` : ''}{' '}
                   </Typography>
                 </span>
                 <span className={styles.talentSkill}>
-                  <img src={`https://api.genshin.dev/characters/${character}/talent-skill`} />
+                  <img src={`https://genshin.jmp.blue/characters/${character}/talent-skill`} />
                   <Typography variant='h1' sx={{ fontSize: '1.3rem', fontWeight: '300', marginLeft: '8px' }}>
                     {characterObj.skillTalents ? `${characterObj.skillTalents[1].name}` : ''}{' '}
                   </Typography>
                 </span>
                 <span className={styles.talentSkill}>
                   <img
-                    src={`https://api.genshin.dev/characters/${character}/${
+                    src={`https://genshin.jmp.blue/characters/${character}/${
                       character === 'diluc' ? 'talent_burst' : 'talent-burst'
                     }`}
                   />
